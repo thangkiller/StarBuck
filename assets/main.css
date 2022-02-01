@@ -1,0 +1,44 @@
+.navbar{
+	width: 100%;
+	height: 101px;
+	font-size: 18px;
+	display: flex;
+	font-weight: 700;
+}
+.navbar--long{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+.navbar__left{
+	display: flex;
+	list-style-type: none;
+}
+.navbar__left__item{
+	margin: auto;
+}
+.navbar__left__item + .navbar__left__item{
+	margin-left: 25px;
+}
+.item--block{
+	width: 4.9rem;
+	height: 4.9rem;
+	margin-left: 4rem;
+}
+.navbar__right{
+	display: flex;
+	list-style-type: none;
+}
+.navbar__right__item{
+	margin: auto;
+}
+.navbar__right__item--join{
+	width: 9.3rem;
+	margin-right: 4rem;
+	padding: 
+	border-style: solid;
+	border-radius: 50px;
+	background-color: #000;
+	color: #fff;
+}

@@ -4,10 +4,15 @@
 	padding: 0;
 	font-size: inherit;
 	font-family: arial;
+	color: #1b1e1d;
 }
 html{
 	font-size: calc(1000vw/1349);
 }
 .text--base{
-	font-size: 10px;
+	font-size: 14px;
+}
+.text--header{
+	font-size: 15px;
+	font-weight: 700;
 }

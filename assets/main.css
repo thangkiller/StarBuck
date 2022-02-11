@@ -280,6 +280,7 @@ img.benefit__item{
 .star{
 	margin-top: 150px;
 	background-color: #F2F0EB;
+	padding-bottom: 30px;
 }
 .star__header{
 	margin: 0 auto;
@@ -302,14 +303,11 @@ img.benefit__item{
 .star__body__obj{
 	display: flex;
 }
-.star__body__obj--first{
-	background-color: #D2A149;
-}
 .star__body__obj__item{
 	width: 42.2rem;
-	height: 16.5rem;
 }
 .star__body__obj--num{
+	width: 30rem;
 	padding-left: 4rem;
 	line-height: 1.5;
 	font-size: 15px;
@@ -334,4 +332,7 @@ img.benefit__item{
 	font-size: 19px;
 	font-weight: 700;
 	line-height: 2;
+}
+.star__body__obj__item{
+
 }

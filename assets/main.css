@@ -452,8 +452,7 @@ img.benefit__item{
 .footer{
 	margin-top: 50px;
 	padding-top: 50px;
-	border-top: 2px solid #DCDCDC;
-	box-shadow: 0px 1px 10px 0px #DCDCDC;
+	box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.08);
 }
 .columns{
 	margin-left: 4rem;
@@ -479,15 +478,44 @@ img.benefit__item{
 	color: rgba(0, 0, 0, 0.58);
 	margin-bottom: 25px;
 }
+.ruler{
+	width: 94%;
+	margin: 10px auto;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
 .general{
-
+	margin-top: 50px;
 }
 .general__icons{
-
+	width: 94%;
+	margin: 0 auto;
+	font-size: 30px;
+}
+.general__icons>a{
+	text-decoration: none;
+	padding-right: 10px;
 }
 .general__rules{
+	width: 94%;
+	margin: 20px auto;
+	display: flex;
+	font-size: 17px;
 
 }
+.general__rules__item>a{
+	text-decoration: none;
+}
+.general__rules__item + .general__rules__item{
+	margin-left: 4rem;
+}
+.general__rules__item--sparate::after{
+	content: '';
+	border-right: 1px solid #000;
+	padding: 0 2rem;	
+}
 .general__company{
-
+	width: 94%;
+	margin: 0 auto;
+	font-size: 14px;
+	margin-bottom: 25px;
 }

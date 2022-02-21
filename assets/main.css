@@ -214,6 +214,9 @@ a.header__secondary__detail__item{
 	background-color: #D4E9E2;
 	display: flex;
 }
+.selection__dicription--disappear{
+	display: none;
+}
 .selection__dicription__content{
 	display: flex;
 	flex-direction: column;

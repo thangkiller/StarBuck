@@ -2,6 +2,7 @@
 	position: sticky;
 	top: 0;
 	background-color: #fff;
+	z-index: 99;
 }
 .navbar{
 	width: 100%;
@@ -30,8 +31,8 @@
 	border-bottom: 4px solid #00754A;
 }
 .item--block{
-	width: 4.9rem;
-	height: 4.9rem;
+	width: 49px;
+	height: 49px;
 	margin-left: 4rem;
 	padding: 0;
 	align-self: center;
@@ -39,9 +40,6 @@
 .navbar__right{
 	display: flex;
 	list-style-type: none;
-}
-.navbar__right__item{
-	
 }
 .navbar__right__item--store{
 	margin-right: 30px;
@@ -79,9 +77,12 @@
 #JoinNow:hover{
 	background-color: rgba(0, 0, 0, 0.8);
 }
+.menu--btn{
+	display: none;
+}
 .header{
 	width: 100%;
-	height: 5rem;
+	height: 50px;
 	background-color: #182E28;
 	display: flex;
 }
@@ -151,6 +152,7 @@ a.header__secondary__detail__item{
 .contentColumn__columns__item{
 	height: 240px;
 	display: flex;
+	margin: 0 24px;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
@@ -159,16 +161,20 @@ a.header__secondary__detail__item{
 	width: 50px;
 	height: 50px;
 }
-.contentColumn__columns__item__key{
-	margin-top: 30px;
-	font-size: 19px;
-	font-weight: bold;
-}
-.contentColumn__columns__item__description{
-	width: 34.5rem;
-	font-size: 16px;
+.contentColumn__columns__item__text{
+	display: flex;
+	flex-direction: column;
 	text-align: center;
-	line-height: 1.5;
+	font-size: 16px;
+	word-spacing: 1.5px;
+}
+.contentColumn__columns__item__text--small{
+	display: none;
+}
+.contentColumn__columns__item__text__key{
+	padding-bottom: 10px;
+	font-weight: 700;
+	font-size: 18px;
 }
 .contentColumn__columns__item__description--link{
 	color: #00754A;
@@ -260,29 +266,29 @@ a.header__secondary__detail__item{
 	align-items: center;
 	width: 34.5rem;
 }
-.benefit__item{
+.benefit__p{
 	margin: 12px 0;
+	text-align: center;
 }
-img.benefit__item{
+img.benefit__p{
 	width: 11.2rem;
 	height: 11.2rem;
 }
-.benefit__item--title{
+.benefit__p--title{
 	font-size: 18px;
 	font-weight: 700;
 }
-.benefit__item--decription{
+.benefit__p--decription{
 	font-size: 15px;
 	font-weight: 530;
-	text-align: center;
 	line-height: 1.5;
 }
-.benefit__item--more{
+.benefit__p--more{
 	font-size: 15px;
 	color: rgb(0, 98, 65);
 	text-decoration: underline;
 }
-.benefit__item--more:hover{
+.benefit__p--more:hover{
 	text-decoration: none;
 }
 .star{
@@ -334,8 +340,8 @@ img.benefit__item{
 	display: flex;
 }
 .star__body__obj--benefit>img{
-	width: 11.2rem;
-	height: 15.8rem;
+	min-width: 112px;
+	height: 158px;
 }
 .star__body__obj--benefit__p{
 	margin-left: 15px;
@@ -465,7 +471,6 @@ img.benefit__item{
 .columns{
 	margin-left: 4rem;
 	display: flex;
-
 }
 .column{
 	display: flex;
@@ -527,3 +532,90 @@ img.benefit__item{
 	font-size: 14px;
 	margin-bottom: 25px;
 }
+@media screen and (max-width: 790px){
+	.navbar--long>ul>a {
+		display: none;
+	}
+	.navbar__left{
+		padding: 10px 0;
+	}
+	.menu--btn{
+		display: block;
+		padding-right: 20px;
+		font-size: 44px;
+		color: #AAAAAA;
+	}
+	.contentColumn__columns{
+		flex-direction: column;
+	}
+	.contentColumn__columns__item{
+		flex-direction: row;
+	}
+	.contentColumn__columns__item__text{
+		margin-left: 10px;
+		text-align: left;
+	}
+	.contentColumn__columns__item__text--big{
+		display: none;
+	}
+	.contentColumn__columns__item__text--small{
+		display: flex;
+	}
+	.seletion__header__prices{
+		width: 100%
+	}
+	.selection__dicription{
+		height: auto;
+		padding: 0;
+		flex-direction: column;
+	}
+	.selection__dicription__content{
+		text-align: center;
+	}
+	.selection__dicription__content__title{
+		font-size: 19px;
+	}
+	.selection__dicription__content__exp{
+		font-size: 15px;
+		padding: 5px 15px;
+	}
+	.benefits__examples{
+		flex-direction: column;
+	}
+	.benefit{
+		flex-direction: row;
+		width: 94%;
+		margin: 0 3%;
+	}
+	.benefit>img{
+		width: 112px;
+		height: 112px;
+	}
+	.benefit__p{
+		margin-left: 10px;
+		text-align: left;
+	}
+	.star__header{
+		width: 90%;
+	}
+	.star__body__obj{
+		flex-direction: column;
+	}
+	.star__body__obj--benefit {
+		width: 90%;
+		margin: 0 auto;
+	}
+	.star__body__obj--benefit__p{
+		width: auto;
+	}
+	.code{
+		margin: 0 5%;
+	}
+	.code__body--check{
+		width: 68px;
+		height: 23px;
+	}
+	.questions{
+		margin: 115px 5% 0 5%;
+	}
+} 

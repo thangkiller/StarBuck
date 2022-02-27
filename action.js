@@ -16,12 +16,19 @@ movedBtn.onclick = () => {
 	target.scrollIntoView();
 }
 //price button
-var priceNodes = document.querySelector('.seletion__header__prices');
-var cur = 0;
-priceNodes.onclick = (e) => {
-	// var curPrice = priceNodes.querySelector(`.seletion__header__prices__item:nth-child(${cur})`);
-
-	// curPrice.classList.add('selection__dicription--disappear');
-
-	console.log(e)
+var parents = document.querySelector('.seletion__header__prices');
+let priceNs = parents.querySelectorAll('.seletion__header__prices__item');
+var curI = 0;
+priceNs[0].style.borderColor = '#00754A';
+parents.onclick = (e) => {
+	const dicript = document.querySelectorAll('.selection__dicription');
+	let newI;
+	for(var i in priceNs) {
+		if(priceNs[i] === e.target) newI = i;
+	}
+	priceNs[curI].style.borderColor = '#fff';
+	priceNs[newI].style.borderColor = '#00754A';
+	dicript[curI].style.display = 'none';
+	dicript[newI].style.display = 'flex';
+	curI = newI;
 }

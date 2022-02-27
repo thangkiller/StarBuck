@@ -213,17 +213,11 @@ a.header__secondary__detail__item{
 	content: "★";
 	color: #cba258;
 }
-.seletion__header__prices__item:hover{
-	border-color: #00754A;
-}
 .selection__dicription{
 	padding: 0 19%;
 	height: 27.5rem;
 	background-color: #D4E9E2;
 	display: flex;
-}
-.selection__dicription--disappear{
-	display: none;
 }
 .selection__dicription__content{
 	display: flex;

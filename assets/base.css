@@ -9,6 +9,9 @@
 html{
 	font-size: calc(1000vw/1349);
 }
+.disappear{
+	display: none;
+}
 .text--base{
 	font-size: 13px;
 }

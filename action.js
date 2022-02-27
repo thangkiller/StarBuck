@@ -32,3 +32,54 @@ parents.onclick = (e) => {
 	dicript[newI].style.display = 'flex';
 	curI = newI;
 }
+//learn more benefit 
+let moreNodes = document.querySelectorAll('.benefit__p--more');
+let card = function(avatar, title, content) {
+	this.avatar = avatar;
+	this.title = title;
+	this.content = content;
+}
+
+let benefits = [
+	[new card(
+		'1A.jpg',
+		'Free food, drinks & more',
+		'Redeem your Stars for favorites like a handcrafted cold brew, protein box or even a coffee tumbler.'
+	),
+	new card(
+		'1B.webp',
+		'Complimentary birthday treat',
+		'Every year on your birthday get a free drink or food item of your choice.'),
+	new card(
+		'1C.webp',
+		'Brewed coffee & tea refills on us',
+		'More Caffè Verona® Blend, please. We’re happy to refill your hot cup while you’re in the store. Just ask.')],
+	[new card(
+		'2A.jpg',
+		'Tap, go.',
+		'Select your menu items in the app along with your store location. Then tell the barista your name when you swing by the pickup area to grab your order.'),
+	new card(
+		'2B.webp',
+		'Just for you',)],
+	[new card(
+		'3A.webp',
+		'Bonus Star challenges',
+		'Rack up the Stars with regular opportunities to get rewarded for what you love.'),
+	new card(
+		'3B.webp',
+		'Double Star Days',
+		'Watch for those special days where you’ll earn twice the Stars on almost everything.'),
+	new card(
+		'3C.webp',
+		'Member-only games',
+		'Play for a chance to win exclusive prizes, free food and drinks, and more.')],
+];
+
+
+
+
+for(const moreNode of moreNodes) {
+	moreNode.onclick = function() {
+		
+	}
+}

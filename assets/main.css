@@ -85,6 +85,7 @@
 	height: 50px;
 	background-color: #182E28;
 	display: flex;
+	align-content: center;
 }
 .header__title{
 	color: #fff;
@@ -178,6 +179,7 @@ a.header__secondary__detail__item{
 }
 .contentColumn__columns__item__description--link{
 	color: #00754A;
+	text-decoration: underline;
 }
 .contentColumn__columns__item__description--link:hover{
 	text-decoration: none;
@@ -292,7 +294,7 @@ img.benefit__p{
 	text-decoration: none;
 }
 .star{
-	margin-top: 150px;
+	margin-top: 115px;
 	background-color: #F2F0EB;
 	padding-bottom: 30px;
 }

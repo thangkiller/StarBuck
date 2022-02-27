@@ -10,9 +10,9 @@ html{
 	font-size: calc(1000vw/1349);
 }
 .text--base{
-	font-size: 14px;
+	font-size: 13px;
 }
 .text--header{
-	font-size: 15px;
+	font-size: 13px;
 	font-weight: 700;
 }

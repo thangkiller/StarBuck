@@ -79,7 +79,16 @@ let benefits = [
 
 
 for(const moreNode of moreNodes) {
-	moreNode.onclick = function() {
+	moreNode.onclick = function(e) {
+		let benNode = document.querySelector('.benefits');
+		let curI;
 		
-	}
+		let thisCard = benefits[0][0];
+		benNode.insertAdjacentHTML('afterend',
+			`<div class="card">
+				<img src="./assets/img/benefit/${thisCard.avatar}" alt="">
+				<h4>${thisCard.title}</h4>
+				<p>${thisCard.content}</p>
+			</div>`)
+		}
 }

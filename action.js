@@ -80,17 +80,14 @@ for(const curI in moreNodes) {
 		let benNode = document.querySelector('.benefits');
 		
 		let thisCard = benefits[curI][0];
-		benNode.insertAdjacentHTML('afterend',
-			`<div class="card">
-				<img src="./assets/img/benefit/${thisCard.avatar}" alt="">
-				<h4>${thisCard.title}</h4>
-				<p>${thisCard.content}</p>
-			</div>`)
-		let cardN = document.querySelector('.card');
-		cardN.style = Object.assign(cardN.style, {
-			color: "red"
-		});
-		cardN.style.color = 'red'
-		console.log(cardN.style.color);
+		benNode.insertAdjacentHTML('beforeend',
+			`<div class="cover">
+			  <div class="card">
+				  <img src="./assets/img/benefit/${thisCard.avatar}" alt="">
+				  <h4>${thisCard.title}</h4>
+			  	<p>${thisCard.content}</p>
+			  </div>
+			</div>`);
+			console.log(11122);
 	}
 }

@@ -455,6 +455,7 @@ img.benefit__p{
 }
 .infor__block__item__p>a{
 	color: #00754A;
+	display: block;
 }
 .infor__block__item__p>a:hover{
 	text-decoration: none;
@@ -614,4 +615,40 @@ img.benefit__p{
 	.questions{
 		margin: 115px 5% 0 5%;
 	}
-} 
+}
+@media screen and (max-width: 360px){
+  .infor__block__item__p>a{
+    font-size: 10px;
+  }
+  .cover{
+    background-color: #0000005E;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99999;
+    display: flex;
+  }
+  .card{
+    width: 80vw;
+    height: 90vw;
+    background-color: #fff;
+    margin: auto;
+    border: 1px solid #FFFFFF;
+    border-radius: 16px;
+  }
+  .card>img{
+    width: 100%;
+    margin-top: 20px;
+  }
+  .card>h4{
+    font-size: 18px;
+    margin: 10px auto;
+    text-align: center;
+  }
+  .card>p{
+    font-size: 14px;
+    text-align: center;
+  }
+}

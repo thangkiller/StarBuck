@@ -22,10 +22,7 @@ var curI = 0;
 priceNs[0].style.borderColor = '#00754A';
 parents.onclick = (e) => {
 	const dicript = document.querySelectorAll('.selection__dicription');
-	let newI;
-	for(var i in priceNs) {
-		if(priceNs[i] === e.target) newI = i;
-	}
+	let newI = [...priceNs].findIndex( priceN => priceN === e.target);
 	priceNs[curI].style.borderColor = '#fff';
 	priceNs[newI].style.borderColor = '#00754A';
 	dicript[curI].style.display = 'none';
@@ -78,17 +75,22 @@ let benefits = [
 
 
 
-for(const moreNode of moreNodes) {
-	moreNode.onclick = function(e) {
+for(const curI in moreNodes) {
+	moreNodes[curI].onclick = e => {
 		let benNode = document.querySelector('.benefits');
-		let curI;
 		
-		let thisCard = benefits[0][0];
+		let thisCard = benefits[curI][0];
 		benNode.insertAdjacentHTML('afterend',
 			`<div class="card">
 				<img src="./assets/img/benefit/${thisCard.avatar}" alt="">
 				<h4>${thisCard.title}</h4>
 				<p>${thisCard.content}</p>
 			</div>`)
-		}
+		let cardN = document.querySelector('.card');
+		cardN.style = Object.assign(cardN.style, {
+			color: "red"
+		});
+		cardN.style.color = 'red'
+		console.log(cardN.style.color);
+	}
 }

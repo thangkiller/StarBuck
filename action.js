@@ -85,7 +85,7 @@ for(const curI in moreNodes) {
 				<img src="./assets/img/benefit/${thisCard.avatar}" alt="">
 				<h4>${thisCard.title}</h4>
 				<p>${thisCard.content}</p>
-			</div>`)
+			</div>`);
 		let cardN = document.querySelector('.card');
 		cardN.style = Object.assign(cardN.style, {
 			color: "red"

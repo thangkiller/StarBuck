@@ -637,10 +637,18 @@ img.benefit__p{
     margin: auto;
     border: 1px solid #FFFFFF;
     border-radius: 16px;
+    position: relative;
   }
   .card>img{
     width: 100%;
     margin-top: 20px;
+  }
+  .card>i{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+    color: #535353FC;
   }
   .card>h4{
     font-size: 18px;
@@ -650,5 +658,20 @@ img.benefit__p{
   .card>p{
     font-size: 14px;
     text-align: center;
+  }
+  .card--btn{
+     width: 100%;
+     position: absolute;
+     bottom: 10px;
+     text-align: center;
+     display: flex;
+     justify-content: center;
+  }
+  .card--btn__cirle{
+     width: 12px;
+     height: 12px;
+     border: 1px solid rgb(0, 117, 57);
+     border-radius: 50%;
+     margin: 0 8px;
   }
 }

@@ -84,10 +84,16 @@ for(const curI in moreNodes) {
 			`<div class="cover">
 			  <div class="card">
 				  <img src="./assets/img/benefit/${thisCard.avatar}" alt="">
+				  <i class="fas fa-times"></i>
 				  <h4>${thisCard.title}</h4>
 			  	<p>${thisCard.content}</p>
+			  	<div class="card--btn">
+			  	</div>
 			  </div>
 			</div>`);
-			console.log(11122);
+		let cardbtn = document.querySelector('.card--btn');
+		for(const i in benefits[curI]){
+		   cardbtn.innerHTML = cardbtn.innerHTML + '<div class="card--btn__cirle"></div>';
+		}
 	}
 }

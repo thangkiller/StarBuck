@@ -78,19 +78,20 @@ let benefits = [
 for(const curI in moreNodes) {
 	moreNodes[curI].onclick = e => {
 		let benNode = document.querySelector('.benefits');
-		
-		let thisCard = benefits[curI][0];
-		benNode.insertAdjacentHTML('beforeend',
-			`<div class="cover">
-			  <div class="card">
-				  <img src="./assets/img/benefit/${thisCard.avatar}" alt="">
-				  <i class="fas fa-times"></i>
-				  <h4>${thisCard.title}</h4>
-			  	<p>${thisCard.content}</p>
-			  	<div class="card--btn">
-			  	</div>
-			  </div>
-			</div>`);
+		let thisBen = benefits[curI];
+		let thisCard = thisBen[0];
+		let html_str = 
+		   `<div class="cover">
+				<div class="card">
+					<img src="./assets/img/benefit/${thisCard.avatar}" alt="">
+					<i class="fas fa-times"></i>
+					<h4>${thisCard.title}</h4>
+					<p>${thisCard.content}</p>
+					<div class="card--btn">
+					</div>
+				</div>
+			</div>`;
+		benNode.insertAdjacentHTML('beforeend', html_str);
 		let cardbtn = document.querySelector('.card--btn');
 		for(const i in benefits[curI]){
 		   cardbtn.innerHTML = cardbtn.innerHTML + '<div class="card--btn__cirle"></div>';

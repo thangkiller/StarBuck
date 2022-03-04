@@ -29,8 +29,9 @@ parents.onclick = (e) => {
 	dicript[newI].style.display = 'flex';
 	curI = newI;
 }
-//learn more benefit 
-let moreNodes = document.querySelectorAll('.benefit__p--more');
+//learn more benefit
+let benNode = document.querySelector('.benefits');
+let moreNodes = benNode.querySelectorAll('.benefit__p--more');
 let card = function(avatar, title, content) {
 	this.avatar = avatar;
 	this.title = title;
@@ -73,14 +74,13 @@ let benefits = [
 ];
 
 
-
-
-for(const curI in moreNodes) {
-	moreNodes[curI].onclick = e => {
-		let benNode = document.querySelector('.benefits');
-		let thisBen = benefits[curI];
-		let thisCard = thisBen[0];
-		let html_str = 
+let curBenI, curCardI = 0;
+let coverN, closeN;
+for(const i in moreNodes) {
+	moreNodes[i].onclick = e => {
+	   curI = i;
+		let thisCard = benefits[i][0];
+		benNode.insertAdjacentHTML('beforeend', 
 		   `<div class="cover">
 				<div class="card">
 					<img src="./assets/img/benefit/${thisCard.avatar}" alt="">
@@ -90,11 +90,24 @@ for(const curI in moreNodes) {
 					<div class="card--btn">
 					</div>
 				</div>
-			</div>`;
-		benNode.insertAdjacentHTML('beforeend', html_str);
+			</div>`);
 		let cardbtn = document.querySelector('.card--btn');
 		for(const i in benefits[curI]){
 		   cardbtn.innerHTML = cardbtn.innerHTML + '<div class="card--btn__cirle"></div>';
 		}
+	coverN = benNode.querySelector('.cover');
+	closeN = coverN.querySelector('i');
 	}
+}
+//close card
+let removeCard = () =>{
+   benNode.removeChild(coverN);
+}
+coverN.onclick = function(e) {
+   switch(e.target){
+      case closeN: removeCard();
+                   break;
+      case coverN: removeCard();
+                   break;
+   }
 }

@@ -73,6 +73,9 @@ let benefits = [
 		'Play for a chance to win exclusive prizes, free food and drinks, and more.')],
 ];
 
+let removeCard = () =>{
+   benNode.removeChild(coverN);
+}
 
 let curBenI, curCardI = 0;
 let coverN, closeN;
@@ -95,19 +98,21 @@ for(const i in moreNodes) {
 		for(const i in benefits[curI]){
 		   cardbtn.innerHTML = cardbtn.innerHTML + '<div class="card--btn__cirle"></div>';
 		}
-	coverN = benNode.querySelector('.cover');
-	closeN = coverN.querySelector('i');
+		coverN = benNode.querySelector('.cover');
+		closeN = coverN.querySelector('i');
+		coverN.onclick = function(e) {
+		   switch(e.target){
+		      case closeN: removeCard();
+		                   break;
+		      case coverN: removeCard();
+		                   break;
+		   }
+		}
+		cardbtn.firstChild.style.backgroundColor = '#00754A';
+
+
+
+
+
 	}
-}
-//close card
-let removeCard = () =>{
-   benNode.removeChild(coverN);
-}
-coverN.onclick = function(e) {
-   switch(e.target){
-      case closeN: removeCard();
-                   break;
-      case coverN: removeCard();
-                   break;
-   }
 }

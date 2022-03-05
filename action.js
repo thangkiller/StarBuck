@@ -77,26 +77,24 @@ let removeCard = () =>{
    benNode.removeChild(coverN);
 }
 
-let curBenI, curCardI = 0;
 let coverN, closeN;
 for(const i in moreNodes) {
 	moreNodes[i].onclick = e => {
-	   curI = i;
-		let thisCard = benefits[i][0];
+		let benefit = benefits[i];
 		benNode.insertAdjacentHTML('beforeend', 
 		   `<div class="cover">
 				<div class="card">
-					<img src="./assets/img/benefit/${thisCard.avatar}" alt="">
+					<img src="./assets/img/benefit/${benefit[0].avatar}" alt="">
 					<i class="fas fa-times"></i>
-					<h4>${thisCard.title}</h4>
-					<p>${thisCard.content}</p>
+					<h4>${benefit[0].title}</h4>
+					<p>${benefit[0].content}</p>
 					<div class="card--btn">
 					</div>
 				</div>
 			</div>`);
-		let cardbtn = document.querySelector('.card--btn');
+		let cardbtns = document.querySelector('.card--btn');
 		for(const i in benefits[curI]){
-		   cardbtn.innerHTML = cardbtn.innerHTML + '<div class="card--btn__cirle"></div>';
+		   cardbtns.innerHTML = cardbtns.innerHTML + '<div class="card--btn__cirle"></div>';
 		}
 		coverN = benNode.querySelector('.cover');
 		closeN = coverN.querySelector('i');
@@ -108,9 +106,24 @@ for(const i in moreNodes) {
 		                   break;
 		   }
 		}
-		cardbtn.firstChild.style.backgroundColor = '#00754A';
-
-
+		let [ ,...cardbtnList] = cardbtns.childNodes;
+		let curCardI = 0;
+		cardbtnList[0].style.backgroundColor = '#00754A';
+		cardbtnList.forEach( (cardbtn, i) =>{
+			cardbtn.onclick = function() {
+				if(i != curCardI){
+					let cardChilds = benNode.querySelector('.card').childNodes.reduce( (childs, cur, i) => (i mod 2 == 0) ? [...childs, cur] : childs, []);
+					cardChilds[0].src = `./assets/img/benefit/${benefit[i].avatar}`;
+				console.log(cardChilds[0]);
+					// cardChilds[2].innerText = `${benefit[i].title}`;
+					// cardChilds[3].textContent = `${benefit[0].content}`;
+					// <img src="./assets/img/benefit/${thisCard.avatar}" alt="">
+					// <i class="fas fa-times"></i>
+					// <h4>${thisCard.title}</h4>
+					// <p>${thisCard.content}</p>
+				}
+			};
+		});
 
 
 

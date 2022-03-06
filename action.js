@@ -93,7 +93,7 @@ for(const i in moreNodes) {
 				</div>
 			</div>`);
 		let cardbtns = document.querySelector('.card--btn');
-		for(const i in benefits[curI]){
+		for(const i in benefit){
 		   cardbtns.innerHTML = cardbtns.innerHTML + '<div class="card--btn__cirle"></div>';
 		}
 		coverN = benNode.querySelector('.cover');
@@ -109,14 +109,19 @@ for(const i in moreNodes) {
 		let [ ,...cardbtnList] = cardbtns.childNodes;
 		let curCardI = 0;
 		cardbtnList[0].style.backgroundColor = '#00754A';
-		for(var j in cardbtnList) {
-			cardbtnList[j].onclick = function() {
+		cardbtnList.forEach( (cardbtn) => {
+			cardbtn.onclick = function(e) {
+				let j = cardbtnList.findIndex( cardbtnN => cardbtnN === e.target);
 				if(j == curCardI) return 0;
 				let cardChilds = [...benNode.querySelector('.card').childNodes];
 				let cardList = cardChilds.reduce( (childs, cur, i) => (i % 2 != 0) ? [...childs, cur] : childs, []);
 		      cardList[0].src = `./assets/img/benefit/${benefit[j].avatar}`;
-		      console.log(cardList[0].src);
-			}
-		};
+		      cardList[2].textContent = `${benefit[j].title}`;
+		      cardList[3].textContent = `${benefit[j].content}`;
+		      cardbtnList[curCardI].style.backgroundColor = '#fff';
+		      cardbtnList[j].style.backgroundColor = '#00754A';
+		      curCardI = j;
+			};
+		});
 	}
 }

@@ -41,7 +41,7 @@ let card = function(avatar, title, content) {
 let benefits = [
 	[new card(
 		'1A.jpg',
-		'Free food, drinks & mores',
+		'Free food, drinks & more',
 		'Redeem your Stars for favorites like a handcrafted cold brew, protein box or even a coffee tumbler.'
 	),
 	new card(

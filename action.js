@@ -112,7 +112,10 @@ for(const i in moreNodes) {
 		cardbtnList.forEach( (cardbtn, i) =>{
 			cardbtn.onclick = function() {
 				if(i != curCardI){
-					let cardChilds = benNode.querySelector('.card').childNodes.reduce( (childs, cur, i) => (i mod 2 == 0) ? [...childs, cur] : childs, []);
+					let cardChilds = benNode.querySelector('.card').childNodes.reduce( (childs, cur, i) => {
+						console.log(childs);
+						return (i % 2 == 0) ? [...childs, cur] : [...childs];
+					}, []);
 					cardChilds[0].src = `./assets/img/benefit/${benefit[i].avatar}`;
 				console.log(cardChilds[0]);
 					// cardChilds[2].innerText = `${benefit[i].title}`;

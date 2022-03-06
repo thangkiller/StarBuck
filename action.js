@@ -79,7 +79,7 @@ let removeCard = () =>{
 
 let coverN, closeN;
 for(const i in moreNodes) {
-	moreNodes[i].onclick = e => {
+	moreNodes[i].onclick = function(e) {
 		let benefit = benefits[i];
 		benNode.insertAdjacentHTML('beforeend', 
 		   `<div class="cover">
@@ -109,26 +109,14 @@ for(const i in moreNodes) {
 		let [ ,...cardbtnList] = cardbtns.childNodes;
 		let curCardI = 0;
 		cardbtnList[0].style.backgroundColor = '#00754A';
-		cardbtnList.forEach( (cardbtn, i) =>{
-			cardbtn.onclick = function() {
-				if(i != curCardI){
-					let cardChilds = benNode.querySelector('.card').childNodes.reduce( (childs, cur, i) => {
-						console.log(childs);
-						return (i % 2 == 0) ? [...childs, cur] : [...childs];
-					}, []);
-					cardChilds[0].src = `./assets/img/benefit/${benefit[i].avatar}`;
-				console.log(cardChilds[0]);
-					// cardChilds[2].innerText = `${benefit[i].title}`;
-					// cardChilds[3].textContent = `${benefit[0].content}`;
-					// <img src="./assets/img/benefit/${thisCard.avatar}" alt="">
-					// <i class="fas fa-times"></i>
-					// <h4>${thisCard.title}</h4>
-					// <p>${thisCard.content}</p>
-				}
-			};
-		});
-
-
-
+		for(var j in cardbtnList) {
+			cardbtnList[j].onclick = function() {
+				if(j == curCardI) return 0;
+				let cardChilds = [...benNode.querySelector('.card').childNodes];
+				let cardList = cardChilds.reduce( (childs, cur, i) => (i % 2 != 0) ? [...childs, cur] : childs, []);
+		      cardList[0].src = `./assets/img/benefit/${benefit[j].avatar}`;
+		      console.log(cardList[0].src);
+			}
+		};
 	}
 }

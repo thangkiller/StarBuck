@@ -675,12 +675,12 @@ img.benefit__p{
 		margin: 115px 5% 0 5%;
 	}
 }
-@media screen and (max-width: 360px){
+@media screen and (max-width: 450px){
   .card{
-    width: 80vw;
-    height: 90vw;
+      width: 80vw;
+      height: 90vw;
   }
   .card>p{
-  	line-height: 1;
+      line-height: 1;
   }
 }

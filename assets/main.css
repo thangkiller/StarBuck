@@ -287,65 +287,70 @@ img.benefit__p{
 .benefit__p--more:hover{
 	text-decoration: none;
 }
- .infor__block__item__p>a{
-    font-size: 10px;
-  }
-  .cover{
-    background-color: #0000005E;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 99999;
-    display: flex;
-  }
-  .card{
-    width: 35vw;
-    height: 35vw;
-    background-color: #fff;
-    margin: auto;
-    border: 1px solid #FFFFFF;
-    border-radius: 16px;
-    position: relative;
-  }
-  .card>img{
-    width: 100%;
-    margin-top: 20px;
-  }
-  .card>i{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 16px;
-    color: #535353FC;
-  }
-  .card>h4{
-    font-size: 18px;
-    margin: 10px auto;
-    text-align: center;
-  }
-  .card>p{
-    font-size: 14px;
-    text-align: center;
-    padding: 0 10px;
-    line-height: 1.5;
-  }
-  .card--btn{
-     width: 100%;
-     position: absolute;
-     bottom: 10px;
-     text-align: center;
-     display: flex;
-     justify-content: center;
-  }
-  .card--btn__cirle{
-     width: 12px;
-     height: 12px;
-     border: 1px solid rgb(0, 117, 57);
-     border-radius: 50%;
-     margin: 0 8px;
-  }
+.infor__block__item__p>a{
+   font-size: 10px;
+ }
+ .cover{
+   background-color: #0000005E;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   z-index: 99999;
+   display: flex;
+ }
+ .card{
+   width: 35vw;
+   height: 35vw;
+   background-color: #fff;
+   margin: auto;
+   border: 1px solid #FFFFFF;
+   border-radius: 16px;
+   position: relative;
+ }
+ .card>img{
+   width: 100%;
+   margin-top: 20px;
+ }
+ .card>i{
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   font-size: 16px;
+   color: #535353FC;
+ }
+ .card>h4{
+   font-size: 18px;
+   margin: 10px auto;
+   text-align: center;
+ }
+.card>p{
+   font-size : 14px;
+   text-align: center;
+   padding: 0 10px;
+   line-height: 1.5;
+ }
+.card--btn{
+   width: 100%;
+   position: absolute;
+   bottom: 10px;
+   display: inline;
+}
+.card--btn__cirles{
+   
+   display: flex;
+}
+.card--btn__cirle{
+   width: 12px;
+   height: 12px;
+   border: 1px solid rgb(0, 117, 57);
+   border-radius: 50%;
+   margin: 0 8px;
+}
+.card--btn>i{
+   
+}
 .star{
 	margin-top: 115px;
 	background-color: #F2F0EB;

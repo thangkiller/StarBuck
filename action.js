@@ -81,47 +81,33 @@ let removeCard = () =>{
 let coverN, closeN;
 for(const i in moreNodes) {
 	moreNodes[i].onclick = function(e) {
-		let cardbtns = document.querySelector('.card--btn');
-
-
-
-		let str;
-		for(const i in benefit){
-		   cardbtns.innerHTML = cardbtns.innerHTML + '<div class="card--btn__cirle"></div>';
-		}
-		let benefit = benefits[i];
-		benNode.insertAdjacentHTML('beforeend', 
-		   `<div class="cover">
-				<div class="card">
-					<img src="./assets/img/benefit/${benefit[0].avatar}" alt="">
-					<i class="fas fa-times"></i>
-					<h4>${benefit[0].title}</h4>
-					<p>${benefit[0].content}</p>
-					<div class="card--btn">
+	let str = `<div class="cover">
+					<div class="card">
+						<img src="./assets/img/benefit/${benefit[0].avatar}" alt="">
+						<i class="fas fa-times"></i>
+						<h4>${benefit[0].title}</h4>
+						<p>${benefit[0].content}</p>
+						<div class="card--btn">
+						   <div class="card--btn__cirles">
+						      ${'<div class="card--btn__cirle"></div>'.repeat(benefit.length)}
+						   </div>
+						   ${(benefit.length > 1) ? '<i class="fas fa-chevron-right"></i>' : ''}
+						</div>
 					</div>
-				</div>
-			</div>`);
-
-
-
-
-
-
-
-
-
-
-		coverN = benNode.querySelector('.cover');
-		closeN = coverN.querySelector('i');
-		coverN.onclick = function(e) {
-		   switch(e.target){
-		      case closeN: removeCard();
-		                   break;
-		      case coverN: removeCard();
-		                   break;
-		   }
-		}
-		let [ ,...cardbtnList] = cardbtns.childNodes;
+				</div>`;
+	benNode.insertAdjacentHTML('beforeend', str);
+	coverN = benNode.querySelector('.cover');
+	closeN = coverN.querySelector('i');
+	coverN.onclick = function(e) {
+	   switch(e.target){
+	      case closeN: removeCard();
+	                   break;
+	      case coverN: removeCard();
+	                   break;
+	   }
+	}
+		let cirlesN = document.querySelectorAll('.card--btn__cirle');
+		let [...cardbtnList] = cirlesN;
 		let curCardI = 0;
 		cardbtnList[0].style.backgroundColor = '#00754A';
 		cardbtnList.forEach( (cardbtn) => {
@@ -137,6 +123,7 @@ for(const i in moreNodes) {
 		      cardbtnList[j].style.backgroundColor = '#00754A';
 		      curCardI = j;
 			};
+			
 		});
 	}
 }

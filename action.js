@@ -81,31 +81,37 @@ let removeCard = () =>{
 let coverN, closeN;
 for(const i in moreNodes) {
 	moreNodes[i].onclick = function(e) {
-	let str = `<div class="cover">
-					<div class="card">
-						<img src="./assets/img/benefit/${benefit[0].avatar}" alt="">
-						<i class="fas fa-times"></i>
-						<h4>${benefit[0].title}</h4>
-						<p>${benefit[0].content}</p>
-						<div class="card--btn">
-						   <div class="card--btn__cirles">
-						      ${'<div class="card--btn__cirle"></div>'.repeat(benefit.length)}
-						   </div>
-						   ${(benefit.length > 1) ? '<i class="fas fa-chevron-right"></i>' : ''}
+		let benefit = benefits[i];
+		let str = `<div class="cover">
+						<div class="card">
+							<img src="./assets/img/benefit/${benefit[0].avatar}">
+							<i class="fas fa-times"></i>
+							<h4>${benefit[0].title}</h4>
+							<p>${benefit[0].content}</p>
+							<div class="card--btn">
+							   <div class="card--btn__navi">
+							   	<i class="fas fa-chevron-left" style="display: none;"></i>
+							   </div>
+							   <div class="card--btn__cirles">
+							      ${'<div class="card--btn__cirle"></div>'.repeat(benefit.length)}
+							   </div>
+							   <div class="card--btn__navi">
+							   	<i class="fas fa-chevron-right" style="display: ${(benefit.length > 1) ? 'inline-block' : 'none'};"></i>
+							   </div>
+							</div>
 						</div>
-					</div>
-				</div>`;
-	benNode.insertAdjacentHTML('beforeend', str);
-	coverN = benNode.querySelector('.cover');
-	closeN = coverN.querySelector('i');
-	coverN.onclick = function(e) {
-	   switch(e.target){
-	      case closeN: removeCard();
-	                   break;
-	      case coverN: removeCard();
-	                   break;
-	   }
-	}
+					</div>`;
+		benNode.insertAdjacentHTML('beforeend', str);
+		coverN = benNode.querySelector('.cover');
+		closeN = coverN.querySelector('i');
+		coverN.onclick = function(e) {
+		   switch(e.target){
+		      case closeN: removeCard();
+		                   break;
+		      case coverN: removeCard();
+		                   break;
+		   }
+		}
 		let cirlesN = document.querySelectorAll('.card--btn__cirle');
 		let [...cardbtnList] = cirlesN;
 		let curCardI = 0;
@@ -122,8 +128,22 @@ for(const i in moreNodes) {
 		      cardbtnList[curCardI].style.backgroundColor = '#fff';
 		      cardbtnList[j].style.backgroundColor = '#00754A';
 		      curCardI = j;
+				let naviNs = document.querySelectorAll('.card--btn__navi>i');
+				switch(curCardI){
+					case 0: naviNs[0].style.display = 'none';
+							  naviNs[1].style.display = 'inline-block';
+							  break;
+					case benefit.length - 1: naviNs[0].style.display = 'inline-block';
+													 naviNs[1].style.display = 'none';
+													 break;
+					default: naviNs[0].style.display = 'inline-block';
+								 naviNs[1].style.display = 'inline-block';
+								 break;
+				}
+				// naviNs.forEach((naviN) =>{
+				// 	naviN
+				// });
 			};
-			
 		});
 	}
 }

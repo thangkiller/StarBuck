@@ -335,11 +335,12 @@ img.benefit__p{
    width: 100%;
    position: absolute;
    bottom: 10px;
-   display: inline;
+   display: flex;
+   justify-content: center;
 }
 .card--btn__cirles{
-   
    display: flex;
+   align-items: center;
 }
 .card--btn__cirle{
    width: 12px;
@@ -348,8 +349,9 @@ img.benefit__p{
    border-radius: 50%;
    margin: 0 8px;
 }
-.card--btn>i{
-   
+.card--btn__navi{
+	margin: auto 35px;
+  font-size: 17px;
 }
 .star{
 	margin-top: 115px;

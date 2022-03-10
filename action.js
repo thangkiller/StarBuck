@@ -58,7 +58,8 @@ let benefits = [
 		'Select your menu items in the app along with your store location. Then tell the barista your name when you swing by the pickup area to grab your order.'),
 	new card(
 		'2B.webp',
-		'Just for you',)],
+		'Just for you',
+		'Our app lets you customize your order and track an estimated pickup time. Make sure to save your favorites so they’re all ready for your next order.')],
 	[new card(
 		'3A.webp',
 		'Bonus Star challenges',
@@ -80,6 +81,14 @@ let removeCard = () =>{
 let coverN, closeN;
 for(const i in moreNodes) {
 	moreNodes[i].onclick = function(e) {
+		let cardbtns = document.querySelector('.card--btn');
+
+
+
+		let str;
+		for(const i in benefit){
+		   cardbtns.innerHTML = cardbtns.innerHTML + '<div class="card--btn__cirle"></div>';
+		}
 		let benefit = benefits[i];
 		benNode.insertAdjacentHTML('beforeend', 
 		   `<div class="cover">
@@ -92,10 +101,16 @@ for(const i in moreNodes) {
 					</div>
 				</div>
 			</div>`);
-		let cardbtns = document.querySelector('.card--btn');
-		for(const i in benefit){
-		   cardbtns.innerHTML = cardbtns.innerHTML + '<div class="card--btn__cirle"></div>';
-		}
+
+
+
+
+
+
+
+
+
+
 		coverN = benNode.querySelector('.cover');
 		closeN = coverN.querySelector('i');
 		coverN.onclick = function(e) {

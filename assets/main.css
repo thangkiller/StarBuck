@@ -350,6 +350,8 @@ img.benefit__p{
    margin: 0 8px;
 }
 .card--btn__navi{
+   width: 15px;
+   height: 15px;
 	margin: auto 35px;
   font-size: 17px;
 }

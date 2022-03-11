@@ -115,35 +115,51 @@ for(const i in moreNodes) {
 		let cirlesN = document.querySelectorAll('.card--btn__cirle');
 		let [...cardbtnList] = cirlesN;
 		let curCardI = 0;
+		let [...naviNs] = document.querySelectorAll('.card--btn__navi>i');
 		cardbtnList[0].style.backgroundColor = '#00754A';
+		
+		let positionChild = (tg) =>{
+		   let childList = tg.parentNode.childNodes.
+		   return tg.parentNode.findIndex( )
+		}
+		
+		
+		
+		
+		
+		
+		let moveCard = (tg) =>{
+		   let j = cardbtnList.findIndex( cardbtnN => cardbtnN === tg);
+			if(j == curCardI) return 0;
+			let cardChilds = [...benNode.querySelector('.card').childNodes];
+			let cardList = cardChilds.reduce( (childs, cur, i) => (i % 2 != 0) ? [...childs, cur] : childs, []);
+		   cardList[0].src = `./assets/img/benefit/${benefit[j].avatar}`;
+		   cardList[2].textContent = `${benefit[j].title}`;
+		   cardList[3].textContent = `${benefit[j].content}`;
+		   cardbtnList[curCardI].style.backgroundColor = '#fff';
+		   cardbtnList[j].style.backgroundColor = '#00754A';
+		   curCardI = j;
+			switch(curCardI){
+				case 0: naviNs[0].style.display = 'none';
+						  naviNs[1].style.display = 'inline-block';
+						  break;
+				case benefit.length - 1: naviNs[0].style.display = 'inline-block';
+												 naviNs[1].style.display = 'none';
+												 break;
+				default: naviNs[0].style.display = 'inline-block';
+							naviNs[1].style.display = 'inline-block';
+							break;
+			}
+		}
 		cardbtnList.forEach( (cardbtn) => {
 			cardbtn.onclick = function(e) {
-				let j = cardbtnList.findIndex( cardbtnN => cardbtnN === e.target);
-				if(j == curCardI) return 0;
-				let cardChilds = [...benNode.querySelector('.card').childNodes];
-				let cardList = cardChilds.reduce( (childs, cur, i) => (i % 2 != 0) ? [...childs, cur] : childs, []);
-		      cardList[0].src = `./assets/img/benefit/${benefit[j].avatar}`;
-		      cardList[2].textContent = `${benefit[j].title}`;
-		      cardList[3].textContent = `${benefit[j].content}`;
-		      cardbtnList[curCardI].style.backgroundColor = '#fff';
-		      cardbtnList[j].style.backgroundColor = '#00754A';
-		      curCardI = j;
-				let naviNs = document.querySelectorAll('.card--btn__navi>i');
-				switch(curCardI){
-					case 0: naviNs[0].style.display = 'none';
-							  naviNs[1].style.display = 'inline-block';
-							  break;
-					case benefit.length - 1: naviNs[0].style.display = 'inline-block';
-													 naviNs[1].style.display = 'none';
-													 break;
-					default: naviNs[0].style.display = 'inline-block';
-								 naviNs[1].style.display = 'inline-block';
-								 break;
-				}
-				// naviNs.forEach((naviN) =>{
-				// 	naviN
-				// });
+				moveCard(e.target);
 			};
+		});
+		naviNs.forEach( (naviN) => {
+		   naviN.onclick = function() {
+		      moveCard(-1);
+		   };
 		});
 	}
 }

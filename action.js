@@ -118,18 +118,17 @@ for(const i in moreNodes) {
 		let [...naviNs] = document.querySelectorAll('.card--btn__navi>i');
 		cardbtnList[0].style.backgroundColor = '#00754A';
 		
-		let positionChild = (tg) =>{
-		   let childList = tg.parentNode.childNodes.
-		   return tg.parentNode.findIndex( )
-		}
+		// let positionChild = (tg) =>{
+		//    let childList = tg.parentNode.querySelectorAll(`${tg.className}`);
+		//    return childList.findIndex( child => child == tg);
+		// }
 		
 		
 		
 		
 		
 		
-		let moveCard = (tg) =>{
-		   let j = cardbtnList.findIndex( cardbtnN => cardbtnN === tg);
+		let moveCard = (j) =>{
 			if(j == curCardI) return 0;
 			let cardChilds = [...benNode.querySelector('.card').childNodes];
 			let cardList = cardChilds.reduce( (childs, cur, i) => (i % 2 != 0) ? [...childs, cur] : childs, []);
@@ -153,12 +152,13 @@ for(const i in moreNodes) {
 		}
 		cardbtnList.forEach( (cardbtn) => {
 			cardbtn.onclick = function(e) {
-				moveCard(e.target);
+				moveCard(positionChild(e.target));
 			};
 		});
 		naviNs.forEach( (naviN) => {
 		   naviN.onclick = function() {
-		      moveCard(-1);
+		      moveCard(curCardI + 1);
+		      
 		   };
 		});
 	}

@@ -355,6 +355,21 @@ img.benefit__p{
 	margin: auto 35px;
   font-size: 17px;
 }
+.card--btn__close{
+	display: none;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	font-size: 18px;
+	width: 50px;
+	height: 32px;
+	padding-top: 5px;
+	text-align: center;
+	color: #158159;
+	font-weight: 500;
+	border: 1px solid #158159;
+	border-radius: 16px;
+}
 .star{
 	margin-top: 115px;
 	background-color: #F2F0EB;

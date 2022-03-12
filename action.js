@@ -99,12 +99,13 @@ for(const i in moreNodes) {
 							   	<i class="fas fa-chevron-right" style="display: ${(benefit.length > 1) ? 'inline-block' : 'none'};"></i>
 							   </div>
 							</div>
+							<div class="card--btn__close">Ok</div>
 						</div>
 					</div>`;
 		benNode.insertAdjacentHTML('beforeend', str);
 		coverN = benNode.querySelector('.cover');
 		closeN = coverN.querySelector('i');
-		coverN.onclick = function(e) {
+		coverN.onclick = e => {
 		   switch(e.target){
 		      case closeN: removeCard();
 		                   break;
@@ -113,15 +114,11 @@ for(const i in moreNodes) {
 		   }
 		}
 		let [...cardbtnList] = document.querySelectorAll('.card--btn__cirle');
-		let [...naviNs] = document.querySelectorAll('.card--btn__navi');
+		let [...naviNs] = document.querySelectorAll('.card--btn__navi>i');
+		let navicloseN = document.querySelector('.card--btn__close');
 		let curCardI = 0;
 		cardbtnList[0].style.backgroundColor = '#00754A';
-		
 		let positionChild = (tg) => [...tg.parentNode.children].findIndex( child => child == tg);
-		
-		
-
-		
 		let moveCard = (j) =>{
 			if(j == curCardI) return;
 			let cardList = [...benNode.querySelector('.card').children];
@@ -134,25 +131,24 @@ for(const i in moreNodes) {
 			switch(curCardI){
 				case 0: naviNs[0].style.display = 'none';
 						  naviNs[1].style.display = 'inline-block';
+						  navicloseN.style.display = 'none';
 						  break;
 				case benefit.length - 1: naviNs[0].style.display = 'inline-block';
 												 naviNs[1].style.display = 'none';
+												 navicloseN.style.display = 'block';
+												 navicloseN.onclick = () => removeCard();
 												 break;
 				default: naviNs[0].style.display = 'inline-block';
 							naviNs[1].style.display = 'inline-block';
+							navicloseN.style.display = 'none';
 							break;
 			}
 		}
-		cardbtnList.forEach( (cardbtn) => {
-			cardbtn.onclick = function(e) {
-				moveCard(positionChild(e.target));
-			};
-		});
-		naviNs.forEach( (naviN) => {
-		   naviN.onclick = function() {
-		      if(positionChild(naviN) == 0) moveCard(curCardI - 1);
-		      else moveCard(curCardI + 1);
-		   };
-		});
+		cardbtnList.forEach( cardbtn => 
+			cardbtn.onclick = e =>
+				moveCard(positionChild(e.target)));
+		naviNs.forEach( naviN => 
+			naviN.parentNode.onclick = () => 
+				(positionChild(naviN.parentNode) == 0) ? moveCard(curCardI - 1) : moveCard(curCardI + 1));
 	}
 }

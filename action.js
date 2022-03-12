@@ -112,25 +112,19 @@ for(const i in moreNodes) {
 		                   break;
 		   }
 		}
-		let cirlesN = document.querySelectorAll('.card--btn__cirle');
-		let [...cardbtnList] = cirlesN;
+		let [...cardbtnList] = document.querySelectorAll('.card--btn__cirle');
+		let [...naviNs] = document.querySelectorAll('.card--btn__navi');
 		let curCardI = 0;
-		let [...naviNs] = document.querySelectorAll('.card--btn__navi>i');
 		cardbtnList[0].style.backgroundColor = '#00754A';
 		
-		let positionChild = (tg) =>{
-		   let ListText = [...tg.parentNode.children];
-		   console.log(ListText);
-		   return childList.findIndex( child => child == tg);
-	   }
+		let positionChild = (tg) => [...tg.parentNode.children].findIndex( child => child == tg);
 		
 		
 
 		
 		let moveCard = (j) =>{
 			if(j == curCardI) return;
-			let cardChilds = [...benNode.querySelector('.card').childNodes];
-			let cardList = cardChilds.reduce( (childs, cur, i) => (i % 2 != 0) ? [...childs, cur] : childs, []);
+			let cardList = [...benNode.querySelector('.card').children];
 		   cardList[0].src = `./assets/img/benefit/${benefit[j].avatar}`;
 		   cardList[2].textContent = `${benefit[j].title}`;
 		   cardList[3].textContent = `${benefit[j].content}`;

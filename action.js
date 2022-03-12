@@ -118,18 +118,17 @@ for(const i in moreNodes) {
 		let [...naviNs] = document.querySelectorAll('.card--btn__navi>i');
 		cardbtnList[0].style.backgroundColor = '#00754A';
 		
-		// let positionChild = (tg) =>{
-		//    let childList = tg.parentNode.querySelectorAll(`${tg.className}`);
-		//    return childList.findIndex( child => child == tg);
-		// }
+		let positionChild = (tg) =>{
+		   let ListText = [...tg.parentNode.children];
+		   console.log(ListText);
+		   return childList.findIndex( child => child == tg);
+	   }
 		
 		
-		
-		
-		
+
 		
 		let moveCard = (j) =>{
-			if(j == curCardI) return 0;
+			if(j == curCardI) return;
 			let cardChilds = [...benNode.querySelector('.card').childNodes];
 			let cardList = cardChilds.reduce( (childs, cur, i) => (i % 2 != 0) ? [...childs, cur] : childs, []);
 		   cardList[0].src = `./assets/img/benefit/${benefit[j].avatar}`;
@@ -157,8 +156,8 @@ for(const i in moreNodes) {
 		});
 		naviNs.forEach( (naviN) => {
 		   naviN.onclick = function() {
-		      moveCard(curCardI + 1);
-		      
+		      if(positionChild(naviN) == 0) moveCard(curCardI - 1);
+		      else moveCard(curCardI + 1);
 		   };
 		});
 	}
